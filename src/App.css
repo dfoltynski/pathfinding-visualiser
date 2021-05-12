@@ -1,4 +1,10 @@
 /* background-color: #282c34; */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap");
+
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
 button {
   border: none;
   background-color: #fff;
@@ -8,22 +14,57 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: beige;
+  background-color: rgb(48, 48, 48);
+  height: 3.4rem;
+  position: relative;
+}
+
+.options {
+  position: absolute;
+  margin: 0 1em;
+  left: 0;
+}
+
+.options__nav__button--dropdown {
+  border: 2px rgb(84, 187, 250) solid;
+  margin: 0 0.5em;
+  background-color: transparent;
+  color: rgb(206, 206, 206);
+  font-weight: 600;
+  border-radius: 10px;
+
+  transition: 0.2s ease-in-out;
+}
+
+.options__nav__button--dropdown:hover {
+  background-color: rgb(84, 187, 250);
+  color: rgb(48, 48, 48);
 }
 
 .options__nav__button__content {
-  padding: 1em;
+  padding: 0.7em;
 
   display: flex;
 
+  align-items: center;
   cursor: pointer;
-  background-color: aqua;
-}
-
-.nav__button__content:hover {
-  background-color: #e4e3e3;
 }
 
 .nav__button--activate {
-  padding: 1em;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: 600;
+
+  padding: 0.8em 1em;
+
+  background-color: rgb(14, 163, 255);
+  transition: 0.2s ease-in-out;
+}
+
+.nav__button__content {
+  color: rgb(48, 48, 48);
+}
+
+.nav__button--activate:hover {
+  background-color: rgb(10, 145, 230);
 }
