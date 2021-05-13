@@ -23,6 +23,7 @@ nav {
   position: absolute;
   margin: 0 1em;
   left: 0;
+  display: flex;
 }
 
 .options__nav__button--dropdown {
@@ -41,6 +42,11 @@ nav {
   color: rgb(48, 48, 48);
 }
 
+.dropdown--active {
+  background-color: rgb(84, 187, 250);
+  color: rgb(48, 48, 48);
+}
+
 .options__nav__button__content {
   padding: 0.7em;
 
@@ -48,6 +54,29 @@ nav {
 
   align-items: center;
   cursor: pointer;
+}
+
+.options__nav__button_container {
+  position: relative;
+  /* background-color: beige; */
+}
+
+.options__dropdown__list {
+  width: 100%;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0.5rem 0;
+  position: absolute;
+  background-color: rgb(84, 187, 250);
+  list-style: none;
+  padding: 0.5em 0;
+}
+
+.dropdown__list__item {
+  cursor: pointer;
+  background-color: bisque;
+  margin: 0.2em;
+  padding: 0.3em;
 }
 
 .nav__button--activate {
