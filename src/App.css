@@ -141,6 +141,7 @@ nav {
 
 /* ----------- GRID ----------- */
 .grid {
+  z-index: -1;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -150,6 +151,19 @@ nav {
 }
 
 .grid__node {
-  border: 1px solid black;
+  border: 1px solid rgb(194, 194, 194);
   margin: 0;
+  cursor: pointer;
+}
+
+.start {
+  background-color: blue;
+}
+
+.end {
+  background-color: yellow;
+}
+
+.barrier {
+  background-color: pink;
 }
