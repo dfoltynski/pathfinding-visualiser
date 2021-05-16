@@ -138,3 +138,18 @@ nav {
   float: left;
   margin: 0 0.5em;
 }
+
+/* ----------- GRID ----------- */
+.grid {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 40em;
+  width: 70em;
+  margin: 1em;
+}
+
+.grid__node {
+  border: 1px solid black;
+  margin: 0;
+}

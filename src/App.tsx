@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Legend } from "./components";
+import { Navbar, Legend, Grid } from "./components";
 
 import "./App.css";
 
@@ -8,6 +8,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Legend />
+      <Grid />
     </div>
   );
 }
