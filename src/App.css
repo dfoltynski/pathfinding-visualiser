@@ -45,6 +45,7 @@ nav {
 .dropdown--active {
   background-color: rgb(84, 187, 250);
   color: rgb(48, 48, 48);
+  border-radius: 10px;
 }
 
 .options__nav__button__content {
@@ -56,8 +57,9 @@ nav {
   cursor: pointer;
 }
 
-.options__nav__button_container {
+.options__button__container {
   position: relative;
+  margin: 0 0.5em;
   /* background-color: beige; */
 }
 
@@ -68,15 +70,22 @@ nav {
   margin: 0.5rem 0;
   position: absolute;
   background-color: rgb(84, 187, 250);
+  border-radius: 10px;
   list-style: none;
   padding: 0.5em 0;
 }
 
 .dropdown__list__item {
   cursor: pointer;
-  background-color: bisque;
   margin: 0.2em;
-  padding: 0.3em;
+  padding: 0.5em;
+  border-radius: 5px;
+
+  transition: 0.2s ease-in-out;
+}
+
+.dropdown__list__item:hover {
+  background-color: rgb(55, 174, 248);
 }
 
 .nav__button--activate {
@@ -96,4 +105,20 @@ nav {
 
 .nav__button--activate:hover {
   background-color: rgb(10, 145, 230);
+}
+
+/* ----------- LEGEND ----------- */
+.legend {
+  background-color: rgb(244, 244, 244);
+  height: 3.5em;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.legend__item {
+  float: left;
+  margin: 0 0.5em;
 }
