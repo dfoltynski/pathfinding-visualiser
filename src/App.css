@@ -108,6 +108,14 @@ nav {
 }
 
 /* ----------- LEGEND ----------- */
+.legend__node {
+  width: 20px;
+  height: 20px;
+  margin: 0 0.2em;
+  float: left;
+  border-radius: 5px;
+}
+
 .legend {
   background-color: rgb(244, 244, 244);
   height: 3.5em;
@@ -116,6 +124,14 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.legend__node {
+  width: 20px;
+  height: 20px;
+  margin: 0 0.2em;
+  float: left;
+  border-radius: 5px;
 }
 
 .legend__item {
