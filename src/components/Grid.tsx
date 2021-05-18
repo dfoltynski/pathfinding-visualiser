@@ -6,17 +6,42 @@ export default function Grid() {
 
   const tableRef = useRef<HTMLTableElement>(document.createElement("table"));
 
-  const handleNodeClick = (event: MouseEvent) => {
-    event.preventDefault();
-    console.log(event.currentTarget);
+  //   const handleNodeClick = (event: MouseEvent) => {
+  //     event.preventDefault();
+  //     console.log(event.currentTarget);
+  //   };
+
+  //   const handleDrag = (ev: any) => {
+  //     if (mouseDown) {
+  //       let prevNode = document.querySelectorAll(`.${nodeFlag}`)[1];
+  //       prevNode?.classList.remove(`${nodeFlag}`);
+  //       console.log(ev.fromElement);
+  //       ev.fromElement.classList.add(`${nodeFlag}`);
+  //     }
+  //   };
+
+  const handleMouseDown = (ev: any | MouseEvent) => {
+    if (ev.path[0].classList[1] == "start") {
+      console.log(ev.path[0]);
+      mouseDown = true;
+      nodeFlag = "start";
+    } else if (ev.path[0].classList[1] == "end") {
+      console.log(ev.path[0]);
+      mouseDown = true;
+      nodeFlag = "end";
+    }
   };
 
-  const handleDrag = (ev: any) => {
+  const handleMouseUp = (ev: any | MouseEvent) => {
+    mouseDown = false;
+  };
+
+  const handleMouseMove = (ev: any | MouseEvent) => {
     if (mouseDown) {
-      let prevNode = document.querySelectorAll(`.${nodeFlag}`)[1];
-      prevNode?.classList.remove(`${nodeFlag}`);
-      console.log(ev.fromElement);
-      ev.fromElement.classList.add(`${nodeFlag}`);
+      document
+        .querySelectorAll(`.${nodeFlag}`)[1]
+        .classList.remove(`${nodeFlag}`);
+      ev.path[0].classList.add(`${nodeFlag}`);
     }
   };
 
@@ -24,23 +49,27 @@ export default function Grid() {
     const node: HTMLTableDataCellElement = document.createElement("td");
     node.classList.add("grid__node");
     node.id = `${x}:${y}`;
+    node.addEventListener("mouseover", handleMouseMove);
 
-    node.addEventListener("mouseover", handleDrag);
+    node.addEventListener("mousedown", handleMouseDown);
+    node.addEventListener("mouseup", handleMouseUp);
 
-    node.addEventListener("mousedown", (ev: any) => {
-      console.log("draging");
-      if (ev.path[0].classList[1] == "start") {
-        mouseDown = true;
-        nodeFlag = "start";
-      } else if (ev.path[0].classList[1] == "end") {
-        mouseDown = true;
-        nodeFlag = "end";
-      }
-    });
+    // node.addEventListener("mouseover", handleDrag);
 
-    node.addEventListener("mouseup", () => {
-      mouseDown = false;
-    });
+    // node.addEventListener("mousedown", (ev: any) => {
+    //   console.log("draging");
+    //   if (ev.path[0].classList[1] == "start") {
+    //     mouseDown = true;
+    //     nodeFlag = "start";
+    //   } else if (ev.path[0].classList[1] == "end") {
+    //     mouseDown = true;
+    //     nodeFlag = "end";
+    //   }
+    // });
+
+    // node.addEventListener("mouseup", () => {
+    //   mouseDown = false;
+    // });
 
     return node;
   };
