@@ -11,6 +11,8 @@ interface IDropdownProps {
 export default function DropdownButton({ title, listItems }: IDropdownProps) {
   const [showDropdownList, setShowDropdownList] = useState<boolean>(false);
 
+  const [buttonText, setButtonText] = useState<string>("");
+
   const dropdownButton = useRef<HTMLButtonElement>(
     document.createElement("button")
   );
@@ -21,6 +23,11 @@ export default function DropdownButton({ title, listItems }: IDropdownProps) {
     dropdownButton.current.classList.toggle("dropdown--active");
   };
 
+  const handleAlgorithmChange = (ev: any) => {
+    console.log(ev.target.outerText);
+    setButtonText(ev.target.outerText);
+  };
+
   return (
     <div className="options__button__container">
       <button
@@ -29,14 +36,22 @@ export default function DropdownButton({ title, listItems }: IDropdownProps) {
         onClick={(e) => toggleDropdownList(e)}
       >
         <div className="options__nav__button__content">
-          <span className="options__nav__button__text">{title}</span>
+          <span className="options__nav__button__text">
+            {" "}
+            {buttonText !== "" ? buttonText : title}
+          </span>
           <IoMdArrowDropdown />
         </div>
       </button>
       {showDropdownList ? (
         <ul className="options__dropdown__list">
           {listItems.map((element) => (
-            <li className="dropdown__list__item">{element}</li>
+            <li
+              className="dropdown__list__item"
+              onClick={handleAlgorithmChange}
+            >
+              {element}
+            </li>
           ))}
         </ul>
       ) : null}
