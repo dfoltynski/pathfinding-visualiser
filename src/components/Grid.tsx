@@ -19,7 +19,13 @@ export default function Grid() {
       console.log(ev.path[0]);
       mouseDown = true;
       nodeClass = "wall";
+
       ev.path[0].classList.replace("grid__node", "wall");
+    } else if (ev.path[0].classList[0] === "wall") {
+      ev.path[0].classList.replace("wall", "grid__node");
+      console.log(ev.path[0]);
+      mouseDown = true;
+      nodeClass = "wall";
     }
   };
 
@@ -30,16 +36,18 @@ export default function Grid() {
   const handleMouseMove = (ev: any | MouseEvent) => {
     if (mouseDown) {
       let hoveredNode: HTMLTableDataCellElement = ev.path[0];
-      let prevNodeClas: string = hoveredNode.classList[0];
       if (nodeClass !== "wall") {
         let node: HTMLTableDataCellElement = document.querySelector(
           `.${nodeClass}`
         ) as HTMLTableDataCellElement;
 
         if (node) {
-          node.classList.replace(`${nodeClass}`, `${prevNodeClas}`);
+          node.classList.replace(`${nodeClass}`, `${hoveredNode.classList[0]}`);
 
-          hoveredNode.classList.replace(`${prevNodeClas}`, `${nodeClass}`);
+          hoveredNode.classList.replace(
+            `${hoveredNode.classList[0]}`,
+            `${nodeClass}`
+          );
         }
       } else {
         if (hoveredNode.classList[0] === "wall") {
