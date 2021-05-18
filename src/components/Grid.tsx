@@ -2,33 +2,24 @@ import React, { useEffect, useRef, useState } from "react";
 
 export default function Grid() {
   let mouseDown: boolean = false;
-  let nodeFlag: string = "";
+  let nodeClass: string = "";
 
   const tableRef = useRef<HTMLTableElement>(document.createElement("table"));
 
-  //   const handleNodeClick = (event: MouseEvent) => {
-  //     event.preventDefault();
-  //     console.log(event.currentTarget);
-  //   };
-
-  //   const handleDrag = (ev: any) => {
-  //     if (mouseDown) {
-  //       let prevNode = document.querySelectorAll(`.${nodeFlag}`)[1];
-  //       prevNode?.classList.remove(`${nodeFlag}`);
-  //       console.log(ev.fromElement);
-  //       ev.fromElement.classList.add(`${nodeFlag}`);
-  //     }
-  //   };
-
   const handleMouseDown = (ev: any | MouseEvent) => {
-    if (ev.path[0].classList[1] == "start") {
+    if (ev.path[0].classList[0] === "start") {
       console.log(ev.path[0]);
       mouseDown = true;
-      nodeFlag = "start";
-    } else if (ev.path[0].classList[1] == "end") {
+      nodeClass = "start";
+    } else if (ev.path[0].classList[0] === "end") {
       console.log(ev.path[0]);
       mouseDown = true;
-      nodeFlag = "end";
+      nodeClass = "end";
+    } else if (ev.path[0].classList[0] === "grid__node") {
+      console.log(ev.path[0]);
+      mouseDown = true;
+      nodeClass = "wall";
+      ev.path[0].classList.replace("grid__node", "wall");
     }
   };
 
@@ -38,10 +29,25 @@ export default function Grid() {
 
   const handleMouseMove = (ev: any | MouseEvent) => {
     if (mouseDown) {
-      document
-        .querySelectorAll(`.${nodeFlag}`)[1]
-        .classList.remove(`${nodeFlag}`);
-      ev.path[0].classList.add(`${nodeFlag}`);
+      let hoveredNode: HTMLTableDataCellElement = ev.path[0];
+      let prevNodeClas: string = hoveredNode.classList[0];
+      if (nodeClass !== "wall") {
+        let node: HTMLTableDataCellElement = document.querySelector(
+          `.${nodeClass}`
+        ) as HTMLTableDataCellElement;
+
+        if (node) {
+          node.classList.replace(`${nodeClass}`, `${prevNodeClas}`);
+
+          hoveredNode.classList.replace(`${prevNodeClas}`, `${nodeClass}`);
+        }
+      } else {
+        if (hoveredNode.classList[0] === "wall") {
+          hoveredNode.classList.replace("wall", "grid__node");
+        } else {
+          hoveredNode.classList.replace("grid__node", "wall");
+        }
+      }
     }
   };
 
@@ -53,23 +59,6 @@ export default function Grid() {
 
     node.addEventListener("mousedown", handleMouseDown);
     node.addEventListener("mouseup", handleMouseUp);
-
-    // node.addEventListener("mouseover", handleDrag);
-
-    // node.addEventListener("mousedown", (ev: any) => {
-    //   console.log("draging");
-    //   if (ev.path[0].classList[1] == "start") {
-    //     mouseDown = true;
-    //     nodeFlag = "start";
-    //   } else if (ev.path[0].classList[1] == "end") {
-    //     mouseDown = true;
-    //     nodeFlag = "end";
-    //   }
-    // });
-
-    // node.addEventListener("mouseup", () => {
-    //   mouseDown = false;
-    // });
 
     return node;
   };
@@ -98,8 +87,8 @@ export default function Grid() {
     const startNode = document.getElementById(startNodeCoords);
     const endNode = document.getElementById(endNodeCoords);
     if (startNode && endNode) {
-      startNode.classList.add("start");
-      endNode.classList.add("end");
+      startNode.classList.replace("grid__node", "start");
+      endNode.classList.replace("grid__node", "end");
     }
   }, []);
 

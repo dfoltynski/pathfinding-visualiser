@@ -152,7 +152,9 @@ nav {
   border-spacing: 0;
 }
 
-.grid__node {
+.grid__node,
+.start,
+.end {
   border: 1px solid rgb(194, 194, 194);
   cursor: pointer;
 }
@@ -165,6 +167,6 @@ nav {
   background-color: yellow;
 }
 
-.barrier {
+.wall {
   background-color: pink;
 }
