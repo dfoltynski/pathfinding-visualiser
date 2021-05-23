@@ -24,7 +24,6 @@ export default function DropdownButton({ title, listItems }: IDropdownProps) {
   };
 
   const handleAlgorithmChange = (ev: any) => {
-    console.log(ev.target.outerText);
     setButtonText(ev.target.outerText);
   };
 
@@ -32,10 +31,6 @@ export default function DropdownButton({ title, listItems }: IDropdownProps) {
     if (!dropdownButton.current.contains(ev.target)) {
       setShowDropdownList(false);
     }
-
-    // if (!ev.target.matches(".options__button__container")) {
-    //   console.log("asd");
-    // }
   };
 
   return (

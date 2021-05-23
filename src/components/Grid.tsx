@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import resetGrid from "./utils";
 
 export default function Grid() {
   let mouseDown: boolean = false;
@@ -68,6 +69,12 @@ export default function Grid() {
     node.addEventListener("mousedown", handleMouseDown);
     node.addEventListener("mouseup", handleMouseUp);
 
+    node.setAttribute("cost", "0");
+
+    node.setAttribute("h", "0");
+
+    node.setAttribute("g", "0");
+
     return node;
   };
 
@@ -100,5 +107,7 @@ export default function Grid() {
     }
   }, []);
 
-  return <table className="grid" ref={tableRef}></table>;
+  return (
+    <table className="grid" ref={tableRef} onMouseDown={resetGrid}></table>
+  );
 }

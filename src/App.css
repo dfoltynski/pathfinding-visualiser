@@ -161,13 +161,21 @@ nav {
 }
 
 .start {
-  background-color: blue;
+  background-color: blue !important;
 }
 
 .end {
-  background-color: yellow;
+  background-color: yellow !important;
 }
 
 .wall {
   background-color: pink;
+}
+
+.visited {
+  background-color: rgba(172, 138, 203, 0.372);
+}
+
+.path {
+  background-color: rgba(255, 127, 80, 0.201);
 }
