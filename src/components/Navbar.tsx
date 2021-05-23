@@ -5,6 +5,8 @@ import DropdownButton from "./DropdownButton";
 import "../App.css";
 
 function Navbar() {
+  const [algorithm, setAlgorithm] = useState<string>("");
+
   return (
     <nav>
       <div className="options">
@@ -25,7 +27,7 @@ function Navbar() {
 
       <button className="nav__button--activate">
         <div className="nav__button__content">
-          <span className="nav__button__text">Visualize</span>
+          <span className="nav__button__text">Run {algorithm}</span>
         </div>
       </button>
     </nav>

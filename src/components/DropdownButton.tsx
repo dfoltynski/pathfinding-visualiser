@@ -28,6 +28,16 @@ export default function DropdownButton({ title, listItems }: IDropdownProps) {
     setButtonText(ev.target.outerText);
   };
 
+  document.onclick = (ev: any) => {
+    if (!dropdownButton.current.contains(ev.target)) {
+      setShowDropdownList(false);
+    }
+
+    // if (!ev.target.matches(".options__button__container")) {
+    //   console.log("asd");
+    // }
+  };
+
   return (
     <div className="options__button__container">
       <button
