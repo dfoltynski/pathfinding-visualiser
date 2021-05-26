@@ -157,6 +157,10 @@ cursor: pointer;
   border-spacing: 0;
 }
 
+.grid--disabled {
+  pointer-events: none;
+}
+
 .grid__node,
 .start,
 .end,

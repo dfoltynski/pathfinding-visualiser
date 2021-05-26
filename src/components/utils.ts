@@ -13,11 +13,15 @@ export function resetGrid() {
   }
 }
 
-export function disableRunButton(button: HTMLButtonElement) {
+export function disableVisualisationControl(button: HTMLButtonElement) {
   console.log(button.disabled);
 
   button.disabled = true;
   button.classList.add("nav__button--disabled");
+
+  const grid = document.querySelector(".grid") as HTMLTableElement;
+
+  grid.classList.add("grid--disabled");
 }
 
-export default { resetGrid, disableRunButton };
+export default { resetGrid, disableVisualisationControl };

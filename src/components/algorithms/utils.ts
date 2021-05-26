@@ -1,5 +1,3 @@
-import { disableRunButton } from "../utils";
-
 export function reconstructPath(
   startNode: HTMLTableCellElement,
   endNode: HTMLTableCellElement,
@@ -35,6 +33,9 @@ export function reconstructPath(
           ) as HTMLButtonElement;
           button.disabled = false;
           button.classList.remove("nav__button--disabled");
+
+          const grid = document.querySelector(".grid") as HTMLTableElement;
+          grid.classList.remove("grid--disabled");
         }
       }, 10);
     }

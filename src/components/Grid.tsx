@@ -1,7 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useVisualisationStatusContext } from "./Context/Context";
 import { resetGrid } from "./utils";
 
 export default function Grid() {
+  const { visualisationStatus } = useVisualisationStatusContext();
+
   let mouseDown: boolean = false;
   let nodeClass: string = "";
 
