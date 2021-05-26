@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import resetGrid from "./utils";
+import { resetGrid } from "./utils";
 
 export default function Grid() {
   let mouseDown: boolean = false;

@@ -1,3 +1,5 @@
+import { disableRunButton } from "../utils";
+
 export function reconstructPath(
   startNode: HTMLTableCellElement,
   endNode: HTMLTableCellElement,
@@ -28,6 +30,11 @@ export function reconstructPath(
         i++;
         if (i == path.length) {
           clearInterval(drawPath);
+          const button = document.querySelector(
+            ".nav__button"
+          ) as HTMLButtonElement;
+          button.disabled = false;
+          button.classList.remove("nav__button--disabled");
         }
       }, 10);
     }

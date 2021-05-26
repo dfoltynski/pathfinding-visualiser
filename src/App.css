@@ -88,8 +88,8 @@ nav {
   background-color: rgb(55, 174, 248);
 }
 
-.nav__button--activate {
-  cursor: pointer;
+.nav__button {
+cursor: pointer;
   border-radius: 10px;
   font-weight: 600;
 
@@ -97,6 +97,11 @@ nav {
 
   background-color: rgb(14, 163, 255);
   transition: 0.2s ease-in-out;
+}
+
+.nav__button--disabled {
+  background-color: rgb(135, 135, 135);
+
 }
 
 .nav__button__content {

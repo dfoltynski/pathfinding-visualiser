@@ -5,10 +5,13 @@ import {
   removeFromList,
 } from "./utils";
 
+import { disableRunButton } from "../utils";
+
 export default function dijskstra(
   startNode: HTMLTableDataCellElement,
   endNode: HTMLTableDataCellElement
 ) {
+  disableRunButton(document.querySelector(".nav__button") as HTMLButtonElement);
   const openList: Array<HTMLTableDataCellElement> = [];
   const closedList: Array<HTMLTableDataCellElement> = [];
 

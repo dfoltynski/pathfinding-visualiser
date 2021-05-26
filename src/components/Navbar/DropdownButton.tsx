@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { useAlgorithmContext } from "../Context/Context";
 
 import "../../App.css";
 
@@ -9,6 +10,8 @@ interface IDropdownProps {
 }
 
 export default function DropdownButton({ title, listItems }: IDropdownProps) {
+  const { setAlgorithm } = useAlgorithmContext();
+
   const [showDropdownList, setShowDropdownList] = useState<boolean>(false);
 
   const [buttonText, setButtonText] = useState<string>("");
@@ -25,6 +28,8 @@ export default function DropdownButton({ title, listItems }: IDropdownProps) {
 
   const handleAlgorithmChange = (ev: any) => {
     setButtonText(ev.target.outerText);
+    setAlgorithm(ev.target.outerText);
+    setShowDropdownList(false);
   };
 
   document.onclick = (ev: any) => {
