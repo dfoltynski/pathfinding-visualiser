@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 
-import "../App.css";
+import "../../App.css";
 
 interface IDropdownProps {
   title: string;

@@ -1,24 +1,35 @@
 import React, { useState, useRef } from "react";
 
 import DropdownButton from "./DropdownButton";
-import Astar from "./Astar";
-import "../App.css";
+import Astar from "../algorithms/Astar";
+import "../../App.css";
+import Dijskstra from "../algorithms/Dijkstra";
+import resetGrid from "../utils";
 
 function Navbar() {
   const [algorithm, setAlgorithm] = useState<string>("");
 
   const handleRunAlgorithm = () => {
+    let btnText = document.querySelector(".options__nav__button__text");
+    if (btnText) {
+      setAlgorithm(btnText.textContent as string);
+    }
+
     const startNode = document.querySelector(
       ".start"
     ) as HTMLTableDataCellElement;
     const endNode = document.querySelector(".end") as HTMLTableDataCellElement;
-    const wallNodes = document.querySelectorAll(
-      ".wall"
-    ) as NodeListOf<HTMLTableDataCellElement>;
+
     const grid = document.querySelector(".grid") as HTMLTableElement;
 
     if (startNode && endNode && grid) {
-      Astar(startNode, endNode, wallNodes, grid);
+      resetGrid();
+
+      if (algorithm == " A* Search") {
+        Astar(startNode, endNode);
+      } else if (algorithm == " Dijkstra's Algorithm") {
+        Dijskstra(startNode, endNode);
+      }
     }
   };
 
@@ -43,7 +54,9 @@ function Navbar() {
       <button className="nav__button--activate">
         <div className="nav__button__content">
           <span className="nav__button__text" onClick={handleRunAlgorithm}>
-            Run {algorithm}
+            {algorithm == " Algorithms"
+              ? "Select an algorithm"
+              : `Run ${algorithm}`}
           </span>
         </div>
       </button>
