@@ -5,7 +5,10 @@ import {
   removeFromList,
 } from "./utils";
 
-import { disableVisualisationControl } from "../utils";
+import {
+  disableVisualisationControl,
+  enableVisualisationControl,
+} from "../utils";
 
 export default function dijskstra(
   startNode: HTMLTableDataCellElement,
@@ -79,6 +82,7 @@ export default function dijskstra(
         j++;
         if (j == closedList.length) {
           clearInterval(drawVisited);
+          enableVisualisationControl();
         }
       }, 10);
     }

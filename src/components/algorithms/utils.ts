@@ -1,3 +1,5 @@
+import { enableVisualisationControl } from "../utils";
+
 export function reconstructPath(
   startNode: HTMLTableCellElement,
   endNode: HTMLTableCellElement,
@@ -28,14 +30,7 @@ export function reconstructPath(
         i++;
         if (i == path.length) {
           clearInterval(drawPath);
-          const button = document.querySelector(
-            ".nav__button"
-          ) as HTMLButtonElement;
-          button.disabled = false;
-          button.classList.remove("nav__button--disabled");
-
-          const grid = document.querySelector(".grid") as HTMLTableElement;
-          grid.classList.remove("grid--disabled");
+          enableVisualisationControl();
         }
       }, 10);
     }
@@ -46,6 +41,8 @@ export function heuristic(
   neighbour: HTMLTableCellElement,
   endNode: HTMLTableCellElement
 ): number {
+  console.log(neighbour);
+
   const neighbourX: number = parseInt(neighbour.id.split(":")[0]);
   const neighbourY: number = parseInt(neighbour.id.split(":")[1]);
 

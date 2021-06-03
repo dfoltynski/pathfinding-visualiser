@@ -46,7 +46,7 @@ function Navbar() {
         />
         <DropdownButton
           title="Mazes"
-          listItems={["Random Maze", "Vertical Maze", "Horizontal Maze"]}
+          listItems={["Recursive Division", "Vertical Maze", "Horizontal Maze"]}
         />
       </div>
 

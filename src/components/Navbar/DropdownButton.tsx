@@ -3,6 +3,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { useAlgorithmContext } from "../Context/Context";
 
 import "../../App.css";
+import { recursiveDivison } from "../mazes/RecursiveDivison";
 
 interface IDropdownProps {
   title: string;
@@ -27,9 +28,20 @@ export default function DropdownButton({ title, listItems }: IDropdownProps) {
   };
 
   const handleAlgorithmChange = (ev: any) => {
-    setButtonText(ev.target.outerText);
-    setAlgorithm(ev.target.outerText);
-    setShowDropdownList(false);
+    const selectedOption: string = ev.target.outerText;
+    const grid: HTMLTableElement = document.querySelector(
+      "table"
+    ) as HTMLTableElement;
+
+    if (title == "Algorithms") {
+      setButtonText(selectedOption);
+      setAlgorithm(selectedOption);
+      setShowDropdownList(false);
+    } else if (title == "Mazes") {
+      if (selectedOption == "Recursive Division") {
+        recursiveDivison(grid);
+      }
+    }
   };
 
   document.onclick = (ev: any) => {

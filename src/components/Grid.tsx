@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useVisualisationStatusContext } from "./Context/Context";
 import { resetGrid } from "./utils";
 
 export default function Grid() {
-  const { visualisationStatus } = useVisualisationStatusContext();
-
   let mouseDown: boolean = false;
   let nodeClass: string = "";
 
@@ -94,7 +91,7 @@ export default function Grid() {
 
     for (let y = 1; y < 21; y++) {
       let row: HTMLTableRowElement = document.createElement("tr");
-      row.classList.add("gird__row");
+      row.classList.add("grid__row");
       for (let x = 1; x < 37; x++) {
         let node: HTMLTableDataCellElement = createNode(x, y);
         row.appendChild(node);

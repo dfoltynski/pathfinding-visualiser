@@ -24,4 +24,17 @@ export function disableVisualisationControl(button: HTMLButtonElement) {
   grid.classList.add("grid--disabled");
 }
 
-export default { resetGrid, disableVisualisationControl };
+export function enableVisualisationControl() {
+  const button = document.querySelector(".nav__button") as HTMLButtonElement;
+  button.disabled = false;
+  button.classList.remove("nav__button--disabled");
+
+  const grid = document.querySelector(".grid") as HTMLTableElement;
+  grid.classList.remove("grid--disabled");
+}
+
+export default {
+  resetGrid,
+  disableVisualisationControl,
+  enableVisualisationControl,
+};
