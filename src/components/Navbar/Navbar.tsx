@@ -37,16 +37,7 @@ function Navbar() {
       <div className="options">
         <DropdownButton
           title="Algorithms"
-          listItems={[
-            "A* Search",
-            "Dijkstra's Algorithm",
-            "Greedy Best-first Search",
-            "Breadth-first Search",
-          ]}
-        />
-        <DropdownButton
-          title="Mazes"
-          listItems={["Recursive Division", "Vertical Maze", "Horizontal Maze"]}
+          listItems={["A* Search", "Dijkstra's Algorithm"]}
         />
       </div>
 
