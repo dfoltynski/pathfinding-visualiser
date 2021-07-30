@@ -167,6 +167,8 @@ cursor: pointer;
 .wall {
   border: 1px solid rgb(194, 194, 194);
   cursor: pointer;
+  width: 25px;
+  height: 25px;
 }
 
 .start {

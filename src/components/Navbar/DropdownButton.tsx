@@ -39,7 +39,11 @@ export default function DropdownButton({ title, listItems }: IDropdownProps) {
       setShowDropdownList(false);
     } else if (title == "Mazes") {
       if (selectedOption == "Recursive Division") {
-        recursiveDivison(grid);
+        recursiveDivison(
+          grid,
+          grid.children[0].childNodes.length,
+          grid.rows.length
+        );
       }
     }
   };
