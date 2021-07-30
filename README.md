@@ -2,7 +2,7 @@
 
 ### How does it looks like
 
-<a href="https://landingi-blog.netlify.app/" target="_blank"><img src="./pathfinding_showcase.gif"></a>
+<a href="https://df-pathfinding.netlify.app/" target="_blank"><img src="./pathfinding_showcase.gif"></a>
 
 ###### Used algortihms
 
@@ -23,3 +23,5 @@
   npm install
   npm start
 ```
+
+or just visit https://df-pathfinding.netlify.app/
