@@ -1,6 +1,6 @@
 # Pathfinding visualizer
 
-Interactive grid that animates A\* and Dijkstra searches, built with React and TypeScript. [Live demo](https://df-pathfinding.netlify.app/).
+Old project from 2021, kept for reference. Interactive grid that animates A\* and Dijkstra searches, built with React and TypeScript. [Live demo](https://df-pathfinding.netlify.app/).
 
 ### Preview
 
